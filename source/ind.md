@@ -26,6 +26,7 @@ According the [assembly_summary_genbank](ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSE
 ## 2. Genome Annotation
 * [Prodigal](https://github.com/hyattpd/Prodigal) 
 * [Prokka](https://github.com/tseemann/prokka) 
+Use a specific database
 * COG Annotation Use [Eggnog-mapper](https://github.com/jhcepas/eggnog-mapper)
 
 ## 3. Pan-core Gene analysis
