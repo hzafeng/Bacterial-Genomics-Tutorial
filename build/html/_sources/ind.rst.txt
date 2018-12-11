@@ -42,7 +42,8 @@ in NCBI ftp site, we can get the genome through the organism name
 --------------------
 
 -  `Prodigal <https://github.com/hyattpd/Prodigal>`__
--  `Prokka <https://github.com/tseemann/prokka>`__
+-  `Prokka <https://github.com/tseemann/prokka>`__ Use a specific
+   database
 -  COG Annotation Use
    `Eggnog-mapper <https://github.com/jhcepas/eggnog-mapper>`__
 
