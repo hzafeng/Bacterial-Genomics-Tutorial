@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Bacterial Genomic Tutorial!" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,36 +81,38 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Bacterial Genomic Tutorial</a><ul>
-<li><a class="reference internal" href="#get-data-from-ncbi">1. Get Data from NCBI</a><ul>
-<li><a class="reference internal" href="#assembly">1.1 Assembly</a><ul>
-<li><a class="reference internal" href="#download-reads-via-sra-toolkit">Download Reads via SRA Toolkit</a></li>
-<li><a class="reference internal" href="#quality-contral">Quality Contral</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bacterial Genomic Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-data-from-ncbi">1. Get Data from NCBI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assembly">1.1 Assembly</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-reads-via-sra-toolkit">Download Reads via SRA Toolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quality-contral">Quality Contral</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assembly-1">Assembly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assembly-statics">Assembly statics</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#download-genome-via-accession-number">1.2 Download Genome Via Accession Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-genome-via-accession-number">1.2 Download Genome Via Accession Number</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#genome-annotation">2. Genome Annotation</a></li>
-<li><a class="reference internal" href="#pan-core-gene-analysis">3. Pan-core Gene analysis</a></li>
-<li><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a></li>
-<li><a class="reference internal" href="#phylogenetic-tree-construction">5. Phylogenetic Tree Construction</a><ul>
-<li><a class="reference internal" href="#select-sequence-use-to-construct-phylogenetic-tree">5.1 Select Sequence Use to construct phylogenetic tree</a></li>
-<li><a class="reference internal" href="#model-select">5.2 Model Select</a></li>
-<li><a class="reference internal" href="#use-connected-single-copy-core-gene-to-inference-phylogenetic-tree">5.3 Use connected single copy core gene to inference phylogenetic tree</a><ul>
-<li><a class="reference internal" href="#get-single-copy-gene-by-roary-pipeline">5.3.1 Get single copy gene by Roary pipeline</a></li>
-<li><a class="reference internal" href="#use-maximum-likelihood-methods">5.3.2 Use Maximum Likelihood Methods</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#genome-annotation">2. Genome Annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pan-core-gene-analysis">3. Pan-core Gene analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phylogenetic-tree-construction">5. Phylogenetic Tree Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-sequence-use-to-construct-phylogenetic-tree">5.1 Select Sequence Use to construct phylogenetic tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-select">5.2 Model Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-connected-single-copy-core-gene-to-inference-phylogenetic-tree">5.3 Use connected single copy core gene to inference phylogenetic tree</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-single-copy-gene-by-roary-pipeline">5.3.1 Get single copy gene by Roary pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-maximum-likelihood-methods">5.3.2 Use Maximum Likelihood Methods</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#execsice">Execsice</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#execsice">Execsice</a></li>
+</ul>
+
             
           
         </div>
@@ -186,9 +189,19 @@
 <ul class="simple">
 <li>Use
 <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a></li>
-<li>Use <a class="reference external" href="https://github.com/OpenGene/fastp">Fastp</a> #### Assembly</li>
+<li>Use <a class="reference external" href="https://github.com/OpenGene/fastp">Fastp</a></li>
+</ul>
+</div>
+<div class="section" id="assembly-1">
+<span id="id1"></span><h4>Assembly<a class="headerlink" href="#assembly-1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
 <li><a class="reference external" href="https://github.com/bcgsc/abyss">ABySS</a></li>
-<li><a class="reference external" href="https://github.com/dzerbino/velvet">Velvet</a> #### Assembly statics</li>
+<li><a class="reference external" href="https://github.com/dzerbino/velvet">Velvet</a></li>
+</ul>
+</div>
+<div class="section" id="assembly-statics">
+<h4>Assembly statics<a class="headerlink" href="#assembly-statics" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
 <li>Use
 <a class="reference external" href="https://github.com/sanger-pathogens/assembly-stats">Assembly-stats</a></li>
 </ul>
@@ -267,6 +280,13 @@ sequence</li>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Bacterial Genomic Tutorial!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

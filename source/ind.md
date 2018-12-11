@@ -2,14 +2,21 @@
 # Bacterial Genomic Tutorial
 
 ## 1. Get Data from NCBI
+
 ### 1.1 Assembly 
+
 #### Download Reads via [SRA Toolkit](https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/)
+
 #### Quality Contral 
+
 * Use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * Use [Fastp](https://github.com/OpenGene/fastp)
+
 #### Assembly
+
 * [ABySS](https://github.com/bcgsc/abyss)
 * [Velvet](https://github.com/dzerbino/velvet)
+
 #### Assembly statics
 * Use [Assembly-stats](https://github.com/sanger-pathogens/assembly-stats)
 
@@ -30,6 +37,7 @@ Use [Roary](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_
 * [JSpecies](http://jspecies.ribohost.com/jspeciesws/)
 
 ## 5. Phylogenetic Tree Construction
+
 ### 5.1 Select Sequence Use to construct phylogenetic tree
 * DNA or AA
 * Marker Gene or Core gene
@@ -40,6 +48,7 @@ Use [Roary](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_
 * [ModelFinder](http://www.iqtree.org/) for Both aa seq and nucl seq
 
 ### 5.3 Use connected single copy core gene to inference phylogenetic tree
+
 #### 5.3.1 Get single copy gene by [Roary](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots) pipeline
 
 #### 5.3.2 Use Maximum Likelihood Methods

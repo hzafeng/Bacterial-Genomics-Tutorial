@@ -15,9 +15,19 @@ Quality Contral
 
 -  Use
    `FastQC <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/>`__
--  Use `Fastp <https://github.com/OpenGene/fastp>`__ #### Assembly
+-  Use `Fastp <https://github.com/OpenGene/fastp>`__
+
+.. _assembly-1:
+
+Assembly
+^^^^^^^^
+
 -  `ABySS <https://github.com/bcgsc/abyss>`__
--  `Velvet <https://github.com/dzerbino/velvet>`__ #### Assembly statics
+-  `Velvet <https://github.com/dzerbino/velvet>`__
+
+Assembly statics
+^^^^^^^^^^^^^^^^
+
 -  Use
    `Assembly-stats <https://github.com/sanger-pathogens/assembly-stats>`__
 
