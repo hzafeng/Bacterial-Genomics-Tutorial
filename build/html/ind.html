@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bacterial Genomic Tutorial &mdash; HUifeng&#39;s BLOG 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> HUifeng's BLOG
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Bacterial Genomic Tutorial</a><ul>
+<li><a class="reference internal" href="#get-data-from-ncbi">1. Get Data from NCBI</a><ul>
+<li><a class="reference internal" href="#assembly">1.1 Assembly</a><ul>
+<li><a class="reference internal" href="#download-reads-via-sra-toolkit">Download Reads via SRA Toolkit</a></li>
+<li><a class="reference internal" href="#quality-contral">Quality Contral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#download-genome-via-accession-number">1.2 Download Genome Via Accession Number</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#genome-annotation">2. Genome Annotation</a></li>
+<li><a class="reference internal" href="#pan-core-gene-analysis">3. Pan-core Gene analysis</a></li>
+<li><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a></li>
+<li><a class="reference internal" href="#phylogenetic-tree-construction">5. Phylogenetic Tree Construction</a><ul>
+<li><a class="reference internal" href="#select-sequence-use-to-construct-phylogenetic-tree">5.1 Select Sequence Use to construct phylogenetic tree</a></li>
+<li><a class="reference internal" href="#model-select">5.2 Model Select</a></li>
+<li><a class="reference internal" href="#use-connected-single-copy-core-gene-to-inference-phylogenetic-tree">5.3 Use connected single copy core gene to inference phylogenetic tree</a><ul>
+<li><a class="reference internal" href="#get-single-copy-gene-by-roary-pipeline">5.3.1 Get single copy gene by Roary pipeline</a></li>
+<li><a class="reference internal" href="#use-maximum-likelihood-methods">5.3.2 Use Maximum Likelihood Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#execsice">Execsice</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HUifeng's BLOG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Bacterial Genomic Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ind.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bacterial-genomic-tutorial">
+<h1>Bacterial Genomic Tutorial<a class="headerlink" href="#bacterial-genomic-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-data-from-ncbi">
+<h2>1. Get Data from NCBI<a class="headerlink" href="#get-data-from-ncbi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="assembly">
+<h3>1.1 Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="download-reads-via-sra-toolkit">
+<h4>Download Reads via <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/">SRA Toolkit</a><a class="headerlink" href="#download-reads-via-sra-toolkit" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="quality-contral">
+<h4>Quality Contral<a class="headerlink" href="#quality-contral" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Use
+<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a></li>
+<li>Use <a class="reference external" href="https://github.com/OpenGene/fastp">Fastp</a> #### Assembly</li>
+<li><a class="reference external" href="https://github.com/bcgsc/abyss">ABySS</a></li>
+<li><a class="reference external" href="https://github.com/dzerbino/velvet">Velvet</a> #### Assembly statics</li>
+<li>Use
+<a class="reference external" href="https://github.com/sanger-pathogens/assembly-stats">Assembly-stats</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="download-genome-via-accession-number">
+<h3>1.2 Download Genome Via Accession Number<a class="headerlink" href="#download-genome-via-accession-number" title="Permalink to this headline">¶</a></h3>
+<p>According the
+<a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt">assembly_summary_genbank</a>
+in NCBI ftp site, we can get the genome through the organism name</p>
+</div>
+</div>
+<div class="section" id="genome-annotation">
+<h2>2. Genome Annotation<a class="headerlink" href="#genome-annotation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/hyattpd/Prodigal">Prodigal</a></li>
+<li><a class="reference external" href="https://github.com/tseemann/prokka">Prokka</a></li>
+<li>COG Annotation Use
+<a class="reference external" href="https://github.com/jhcepas/eggnog-mapper">Eggnog-mapper</a></li>
+</ul>
+</div>
+<div class="section" id="pan-core-gene-analysis">
+<h2>3. Pan-core Gene analysis<a class="headerlink" href="#pan-core-gene-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Use
+<a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a></p>
+</div>
+<div class="section" id="ani-and-aai">
+<h2>4. ANI and AAI<a class="headerlink" href="#ani-and-aai" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/widdowquinn/pyani">PYANI</a></li>
+<li><a class="reference external" href="http://jspecies.ribohost.com/jspeciesws/">JSpecies</a></li>
+</ul>
+</div>
+<div class="section" id="phylogenetic-tree-construction">
+<h2>5. Phylogenetic Tree Construction<a class="headerlink" href="#phylogenetic-tree-construction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="select-sequence-use-to-construct-phylogenetic-tree">
+<h3>5.1 Select Sequence Use to construct phylogenetic tree<a class="headerlink" href="#select-sequence-use-to-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>DNA or AA</li>
+<li>Marker Gene or Core gene</li>
+</ul>
+</div>
+<div class="section" id="model-select">
+<h3>5.2 Model Select<a class="headerlink" href="#model-select" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ddarriba/jmodeltest2">Jmodeltest</a> for nucl seq</li>
+<li><a class="reference external" href="https://github.com/ddarriba/prottest3">ProtTest</a> for aa seq</li>
+<li><a class="reference external" href="http://www.iqtree.org/">ModelFinder</a> for Both aa seq and nucl seq</li>
+</ul>
+</div>
+<div class="section" id="use-connected-single-copy-core-gene-to-inference-phylogenetic-tree">
+<h3>5.3 Use connected single copy core gene to inference phylogenetic tree<a class="headerlink" href="#use-connected-single-copy-core-gene-to-inference-phylogenetic-tree" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-single-copy-gene-by-roary-pipeline">
+<h4>5.3.1 Get single copy gene by <a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a> pipeline<a class="headerlink" href="#get-single-copy-gene-by-roary-pipeline" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="use-maximum-likelihood-methods">
+<h4>5.3.2 Use Maximum Likelihood Methods<a class="headerlink" href="#use-maximum-likelihood-methods" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Use <a class="reference external" href="http://www.atgc-montpellier.fr/phyml/">PhyML</a> for aa Sequence</li>
+<li>Use <a class="reference external" href="https://github.com/stamatak/standard-RAxML">RAxml</a> for nucl
+sequence</li>
+<li>Use
+<a class="reference external" href="http://www.microbesonline.org/fasttree/">FastTree</a>(ML-likely)</li>
+<li>Bayesian Tree</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="execsice">
+<h1>Execsice<a class="headerlink" href="#execsice" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, huifeng@ualberta.ca.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
