@@ -84,7 +84,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bacterial Genomic Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#get-data-from-ncbi">1. Get Data from NCBI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acquire-data">1. Acquire Data</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#assembly">1.1 Assembly</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#download-reads-via-sra-toolkit">Download Reads via SRA Toolkit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quality-contral">Quality Contral</a></li>
@@ -96,10 +96,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#genome-annotation">2. Genome Annotation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pan-core-gene-analysis">3. Pan-core Gene analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gene-family-analysis">3. Gene family analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pan-core-gene">3.1 Pan&amp;core gene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ani">4.1 ANI</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#phylogenetic-tree-construction">5. Phylogenetic Tree Construction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select-sequence-use-to-construct-phylogenetic-tree">5.1 Select Sequence Use to construct phylogenetic tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequence-use-to-construct-phylogenetic-tree">5.1 Sequence Use to construct phylogenetic tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#model-select">5.2 Model Select</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#use-connected-single-copy-core-gene-to-inference-phylogenetic-tree">5.3 Use connected single copy core gene to inference phylogenetic tree</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#get-single-copy-gene-by-roary-pipeline">5.3.1 Get single copy gene by Roary pipeline</a></li>
@@ -177,19 +183,24 @@
             
   <div class="section" id="bacterial-genomic-tutorial">
 <h1>Bacterial Genomic Tutorial<a class="headerlink" href="#bacterial-genomic-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="get-data-from-ncbi">
-<h2>1. Get Data from NCBI<a class="headerlink" href="#get-data-from-ncbi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acquire-data">
+<h2>1. Acquire Data<a class="headerlink" href="#acquire-data" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="assembly">
 <h3>1.1 Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="download-reads-via-sra-toolkit">
 <h4>Download Reads via <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/">SRA Toolkit</a><a class="headerlink" href="#download-reads-via-sra-toolkit" title="Permalink to this headline">¶</a></h4>
+<p>Use <strong>prefetch</strong> download SRA data, and use <strong>fasterq-dump</strong> to convert
+reads into Fastq format.</p>
 </div>
 <div class="section" id="quality-contral">
 <h4>Quality Contral<a class="headerlink" href="#quality-contral" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Use
-<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a></li>
-<li>Use <a class="reference external" href="https://github.com/OpenGene/fastp">Fastp</a></li>
+<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>
++ <a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic</a></li>
+<li>Use <a class="reference external" href="https://github.com/OpenGene/fastp">Fastp</a> Fastp is a
+Ultra-fast all-in-one FASTQ
+preprocessor(QC/adapters/trimming/filtering/splitting…)</li>
 </ul>
 </div>
 <div class="section" id="assembly-1">
@@ -212,36 +223,49 @@
 <p>According the
 <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt">assembly_summary_genbank</a>
 in NCBI ftp site, we can get the genome through the organism name</p>
+<p>A example of Python script used to download all <em>Exiguobacterium</em> genome
+in Genbank database ~~~Python import pandas as pd
+f=pd.read_table(“assembly_summary_genbank.txt”,sep=‘<a href="#id2"><span class="problematic" id="id3">:raw-latex:`\t'`</span></a>,header=1)
+for i in f[’Exiguobacterium’ in f[’organism_name’]][’ftp_path’]:
+os.system(’wget’+i+’_genomic.fna.gz’) ~~~</p>
 </div>
 </div>
 <div class="section" id="genome-annotation">
 <h2>2. Genome Annotation<a class="headerlink" href="#genome-annotation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/hyattpd/Prodigal">Prodigal</a></li>
-<li><a class="reference external" href="https://github.com/tseemann/prokka">Prokka</a> Use a specific
-database</li>
-<li>COG Annotation Use
-<a class="reference external" href="https://github.com/jhcepas/eggnog-mapper">Eggnog-mapper</a></li>
+<li><a class="reference external" href="https://github.com/hyattpd/Prodigal">Prodigal</a> : Protein-coding
+gene prediction for prokaryotic genomes.</li>
+<li><a class="reference external" href="https://github.com/tseemann/prokka">Prokka</a> : Rapid prokaryotic
+genome annotation</li>
 </ul>
 </div>
-<div class="section" id="pan-core-gene-analysis">
-<h2>3. Pan-core Gene analysis<a class="headerlink" href="#pan-core-gene-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gene-family-analysis">
+<h2>3. Gene family analysis<a class="headerlink" href="#gene-family-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pan-core-gene">
+<h3>3.1 Pan&amp;core gene<a class="headerlink" href="#pan-core-gene" title="Permalink to this headline">¶</a></h3>
 <p>Use
-<a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a></p>
+<a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a>
+### 3.2 Ortholog gene family analysis</p>
+<p><a class="reference external" href="https://github.com/olsonanl/FastOrtho">FastOrtho</a></p>
+</div>
 </div>
 <div class="section" id="ani-and-aai">
 <h2>4. ANI and AAI<a class="headerlink" href="#ani-and-aai" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ani">
+<h3>4.1 ANI<a class="headerlink" href="#ani" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/widdowquinn/pyani">PYANI</a></li>
-<li><a class="reference external" href="http://jspecies.ribohost.com/jspeciesws/">JSpecies</a></li>
+<li><a class="reference external" href="https://github.com/ParBLiSS/FastANI">FastANI</a> ### 4.2 AAI</li>
+<li><a class="reference external" href="https://github.com/dparks1134/CompareM">CompareM</a></li>
 </ul>
+</div>
 </div>
 <div class="section" id="phylogenetic-tree-construction">
 <h2>5. Phylogenetic Tree Construction<a class="headerlink" href="#phylogenetic-tree-construction" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="select-sequence-use-to-construct-phylogenetic-tree">
-<h3>5.1 Select Sequence Use to construct phylogenetic tree<a class="headerlink" href="#select-sequence-use-to-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sequence-use-to-construct-phylogenetic-tree">
+<h3>5.1 Sequence Use to construct phylogenetic tree<a class="headerlink" href="#sequence-use-to-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>DNA or AA</li>
+<li>DNA or AA sequence</li>
 <li>Marker Gene or Core gene</li>
 </ul>
 </div>
