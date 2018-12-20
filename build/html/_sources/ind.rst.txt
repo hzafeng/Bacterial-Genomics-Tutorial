@@ -47,10 +47,14 @@ According the
 in NCBI ftp site, we can get the genome through the organism name
 
 A example of Python script used to download all *Exiguobacterium* genome
-in Genbank database ~~~Python import pandas as pd
-f=pd.read_table(“assembly_summary_genbank.txt”,sep=‘:raw-latex:`\t'`,header=1)
-for i in f[’Exiguobacterium’ in f[’organism_name’]][’ftp_path’]:
-os.system(’wget’+i+’_genomic.fna.gz’) ~~~
+in Genbank database
+
+.. code:: python
+
+   import pandas as pd
+   f=pd.read_table("assembly_summary_genbank.txt",sep='\t',header=1)
+   for i in f['Exiguobacterium' in f['organism_name']]['ftp_path']:
+       os.system('wget '+i+'_genomic.fna.gz')
 
 2. Genome Annotation
 --------------------
@@ -69,7 +73,9 @@ os.system(’wget’+i+’_genomic.fna.gz’) ~~~
 
 Use
 `Roary <https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots>`__
-### 3.2 Ortholog gene family analysis
+
+3.2 Ortholog gene family analysis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `FastOrtho <https://github.com/olsonanl/FastOrtho>`__
 

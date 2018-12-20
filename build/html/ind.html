@@ -98,6 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#genome-annotation">2. Genome Annotation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gene-family-analysis">3. Gene family analysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pan-core-gene">3.1 Pan&amp;core gene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ortholog-gene-family-analysis">3.2 Ortholog gene family analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ani-and-aai">4. ANI and AAI</a><ul>
@@ -224,10 +225,13 @@ preprocessor(QC/adapters/trimming/filtering/splitting…)</li>
 <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt">assembly_summary_genbank</a>
 in NCBI ftp site, we can get the genome through the organism name</p>
 <p>A example of Python script used to download all <em>Exiguobacterium</em> genome
-in Genbank database ~~~Python import pandas as pd
-f=pd.read_table(“assembly_summary_genbank.txt”,sep=‘<a href="#id2"><span class="problematic" id="id3">:raw-latex:`\t'`</span></a>,header=1)
-for i in f[’Exiguobacterium’ in f[’organism_name’]][’ftp_path’]:
-os.system(’wget’+i+’_genomic.fna.gz’) ~~~</p>
+in Genbank database</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">f</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;assembly_summary_genbank.txt&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Exiguobacterium&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;organism_name&#39;</span><span class="p">]][</span><span class="s1">&#39;ftp_path&#39;</span><span class="p">]:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="genome-annotation">
@@ -244,8 +248,10 @@ genome annotation</li>
 <div class="section" id="pan-core-gene">
 <h3>3.1 Pan&amp;core gene<a class="headerlink" href="#pan-core-gene" title="Permalink to this headline">¶</a></h3>
 <p>Use
-<a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a>
-### 3.2 Ortholog gene family analysis</p>
+<a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary</a></p>
+</div>
+<div class="section" id="ortholog-gene-family-analysis">
+<h3>3.2 Ortholog gene family analysis<a class="headerlink" href="#ortholog-gene-family-analysis" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://github.com/olsonanl/FastOrtho">FastOrtho</a></p>
 </div>
 </div>
